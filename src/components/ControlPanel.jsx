@@ -1,6 +1,12 @@
 import React from "react";
 
 const ControlPanel = () => {
+
+  const generateArray = () => {
+    
+
+  };
+
   return (
     <div className="flex items-end justify-between gap-8 p-6">
       {/* Algorithm Selection */}
@@ -45,7 +51,10 @@ const ControlPanel = () => {
       </div>
 
       {/* Generate Array Button */}
-      <button className="border rounded-md px-5 py-2 font-semibold cursor-pointer">
+      <button
+        className="border rounded-md px-5 py-2 font-semibold cursor-pointer"
+        onClick={generateArray}
+      >
         Generate Array
       </button>
     </div>

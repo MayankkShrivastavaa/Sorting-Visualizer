@@ -1,12 +1,32 @@
-import React from 'react'
+import React from "react";
 
-const VisualizationaArea = () => {
+const VisualizationArea = () => {
+  let values = [26, 50, 85, 45, 100];
+
+  // Finding the largest value in the array
+  let maxValue = Math.max(...values);
+
   return (
     <div>
-        
-      
-    </div>
-  )
-}
+      <div className="border-2 border-black h-65 flex justify-center items-end gap-3 px-4">
 
-export default VisualizationaArea
+        {values.map((value, index) => {
+
+          // Converting the value into percentage height
+          let heightPercentage = (value / maxValue) * 100;
+
+          return (
+            <div
+              key={index}
+              className="w-8 bg-blue-400"
+              style={{ height: `${heightPercentage}%` }}
+            ></div>
+          );
+        })}
+
+      </div>
+    </div>
+  );
+};
+
+export default VisualizationArea;
