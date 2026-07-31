@@ -1,7 +1,7 @@
 import React from "react";
 
-const VisualizationArea = () => {
-  let values = [26, 50, 85, 45, 100];
+const VisualizationArea = ({value}) => {
+  let values = value ;
 
   // Finding the largest value in the array
   let maxValue = Math.max(...values);
