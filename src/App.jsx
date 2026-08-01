@@ -6,36 +6,33 @@ import PlaybackControls from "./components/PlaybackControls";
 import InformationPanel from "./components/InformationPanel";
 
 const App = () => {
-
-  const [values, setValues] = useState([15,25,36]);
-
+  const [values, setValues] = useState([15, 25, 36]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-stone-100 px-4 py-4 text-slate-800 sm:px-6 lg:px-8">
       {/* Header */}
-      <div className="text-center">
+      <div className="mb-3 text-center">
         <Header />
       </div>
 
       {/* Control Panel */}
-      <div className="w-full h-30 border-2 border-black rounded-md">
-        <ControlPanel setValues = {setValues} />
+      <div className="mb-3 w-full rounded-md border border-stone-300 bg-white p-4 shadow-sm">
+        <ControlPanel setValues={setValues} />
       </div>
 
       {/* Visualization Area */}
-      <div className="mt-1.5">
-        <VisualizationaArea value = {values}/>
+      <div className="mb-3">
+        <VisualizationaArea value={values} />
       </div>
 
-       {/* Playback Controls */}
-      <div className="mt-1.5">
-        <PlaybackControls/>
+      {/* Playback Controls */}
+      <div className="mb-3">
+        <PlaybackControls />
       </div>
 
-      <div className="mt-1.5">
-        <InformationPanel/>
+      <div>
+        <InformationPanel />
       </div>
-
     </div>
   );
 };

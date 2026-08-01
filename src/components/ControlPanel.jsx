@@ -30,16 +30,15 @@ const ControlPanel = ({ setValues }) => {
   };
 
   return (
-    <div className="flex items-end justify-between gap-8 p-6">
-
+    <div className="flex flex-wrap items-end justify-between gap-4">
       {/* Algorithm Selection */}
       <div className="flex flex-col gap-2">
-        <h3 className="font-semibold">Algorithm</h3>
+        <h3 className="text-sm font-semibold text-slate-700">Algorithm</h3>
 
         <select
           name="sort-techniques"
           id="sort-techniques"
-          className="border rounded-md px-3 py-2"
+          className="border border-stone-300 rounded-md px-3 py-2 text-sm bg-white"
         >
           <option value="Bubble">Bubble Sort</option>
           <option value="Quick">Quick Sort</option>
@@ -50,7 +49,7 @@ const ControlPanel = ({ setValues }) => {
 
       {/* Array Size */}
       <div className="flex flex-col gap-2">
-        <h3 className="font-semibold">
+        <h3 className="text-sm font-semibold text-slate-700">
           Array Size: {arraySize}
         </h3>
 
@@ -60,28 +59,30 @@ const ControlPanel = ({ setValues }) => {
           max="100"
           value={arraySize}
           onChange={(e) => setArraySize(Number(e.target.value))}
+          className="accent-emerald-600"
         />
       </div>
 
       {/* Speed */}
       <div className="flex flex-col gap-2">
-        <h3 className="font-semibold">Speed</h3>
+        <h3 className="text-sm font-semibold text-slate-700">Speed</h3>
 
         <input
           type="range"
           min="50"
           max="2000"
+          className="accent-emerald-600"
         />
       </div>
 
       {/* Custom Array Input */}
       <div className="flex flex-col gap-2">
-        <h3 className="font-semibold">Array Input</h3>
+        <h3 className="text-sm font-semibold text-slate-700">Array Input</h3>
 
         <input
           type="text"
           placeholder="e.g. 5, 2, 9, 1, 6"
-          className="border rounded-md px-3 py-2"
+          className="border border-stone-300 rounded-md px-3 py-2 text-sm bg-white"
           value={arrayInput}
           onChange={(e) => setArrayInput(e.target.value)}
         />
@@ -89,7 +90,7 @@ const ControlPanel = ({ setValues }) => {
 
       {/* Generate Random Array */}
       <button
-        className="border rounded-md px-5 py-2 font-semibold cursor-pointer"
+        className="border border-stone-300 rounded-md px-4 py-2 text-sm font-semibold cursor-pointer bg-white text-slate-700"
         onClick={generateRandomArray}
       >
         Generate Random Array
@@ -97,12 +98,11 @@ const ControlPanel = ({ setValues }) => {
 
       {/* Use Custom Array */}
       <button
-        className="border rounded-md px-5 py-2 font-semibold cursor-pointer"
+        className="rounded-md px-4 py-2 text-sm font-semibold cursor-pointer bg-emerald-600 text-white"
         onClick={customArray}
       >
         Use Custom Array
       </button>
-
     </div>
   );
 };

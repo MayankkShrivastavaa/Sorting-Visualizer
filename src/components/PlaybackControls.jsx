@@ -2,41 +2,35 @@ import React from "react";
 
 const PlaybackControls = () => {
   return (
-    <div className="border-2 border-black rounded-md p-5 flex items-center justify-between">
-
+    <div className="flex items-center justify-between gap-4 rounded-md border border-stone-300 bg-white p-4 shadow-sm">
       {/* Playback Buttons */}
-      <div className="flex items-center gap-4">
-
-        <button className="px-6 py-2 rounded-md bg-green-500 text-white font-semibold cursor-pointer">
+      <div className="flex items-center gap-3">
+        <button className="rounded-md bg-emerald-600 px-4 py-2 text-sm font-semibold text-white cursor-pointer">
           ▶ Start
         </button>
 
-        <button className="px-6 py-2 rounded-md bg-yellow-500 text-white font-semibold cursor-pointer">
+        <button className="rounded-md border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer">
           ⏸ Pause
         </button>
 
-        <button className="px-6 py-2 rounded-md bg-red-500 text-white font-semibold cursor-pointer">
+        <button className="rounded-md border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer">
           ■ Stop
         </button>
 
-        <button className="px-6 py-2 rounded-md bg-purple-500 text-white font-semibold cursor-pointer">
+        <button className="rounded-md border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer">
           ↻ Reset
         </button>
-
       </div>
 
       {/* Sorting Mode */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2">
+        <h3 className="text-sm font-semibold text-slate-700">Mode</h3>
 
-        <h3 className="font-semibold">Mode</h3>
-
-        <select className="border rounded-md px-4 py-2">
+        <select className="border border-stone-300 rounded-md px-3 py-2 text-sm bg-white">
           <option value="ascending">Ascending</option>
           <option value="descending">Descending</option>
         </select>
-
       </div>
-
     </div>
   );
 };
