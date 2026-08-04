@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ControlPanel = ({ setValues }) => {
+const ControlPanel = ({ setValues , selectedAlgo, setSelectedAlgo}) => {
   // State for custom array input
   const [arrayInput, setArrayInput] = useState("");
 
@@ -39,6 +39,8 @@ const ControlPanel = ({ setValues }) => {
           name="sort-techniques"
           id="sort-techniques"
           className="border border-stone-300 rounded-md px-3 py-2 text-sm bg-white"
+          value={selectedAlgo}
+          onChange={(e)=> setSelectedAlgo(e.target.value)}
         >
           <option value="Bubble">Bubble Sort</option>
           <option value="Quick">Quick Sort</option>
