@@ -1,25 +1,25 @@
 import React from "react";
 
-const PlaybackControls = ({onStart}) => {
+const PlaybackControls = ({onStart, onPlay, onPause, onReset}) => {
 
   
   return (
     <div className="flex items-center justify-between gap-4 rounded-md border border-stone-300 bg-white p-4 shadow-sm">
       {/* Playback Buttons */}
       <div className="flex items-center gap-3">
-        <button className="rounded-md border border-stone-300 hover:bg-emerald-600 px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer" onClick={onStart}>
+        <button className="rounded-md border border-stone-300 hover:bg-emerald-600 px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer" onClick={onPlay}>
           ▶ Start
         </button>
 
-        <button className="rounded-md border border-stone-300 hover:bg-emerald-600  px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer">
+        <button className="rounded-md border border-stone-300 hover:bg-emerald-600  px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer"  onClick={onPause}>
           ⏸ Pause
         </button>
 
-        <button className="rounded-md border border-stone-300 hover:bg-emerald-600  px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer">
+        {/* <button className="rounded-md border border-stone-300 hover:bg-emerald-600  px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer">
           ■ Stop
-        </button>
+        </button> */}
 
-        <button className="rounded-md border border-stone-300 hover:bg-emerald-600 px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer">
+        <button className="rounded-md border border-stone-300 hover:bg-emerald-600 px-4 py-2 text-sm font-semibold text-slate-700 cursor-pointer"  onClick={onReset}>
           ↻ Reset
         </button>
       </div>

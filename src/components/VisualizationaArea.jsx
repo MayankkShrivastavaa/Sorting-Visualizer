@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const VisualizationArea = ({ value }) => {
+const VisualizationArea = ({ value, currentOperation }) => {
   let values = value;
 
   // Finding the largest value in the array
@@ -13,15 +13,31 @@ const VisualizationArea = ({ value }) => {
           // Converting the value into percentage height
           let heightPercentage = (value / maxValue) * 100;
 
+          const isComparing =
+            currentOperation &&
+            currentOperation.type === "compare" &&
+            (index === currentOperation.index1 ||
+              index === currentOperation.index2);
+
+          const isMinimum =
+            currentOperation &&
+            currentOperation.type === "selectMin" &&
+            index === currentOperation.index;
+
           return (
             <div
               key={index}
-              className="w-6 bg-sky-400"
+              className={`w-8 ${isMinimum ? "bg-yellow-400" : isComparing ? "bg-red-500" : "bg-sky-500"}`}
               style={{ height: `${heightPercentage}%` }}
             ></div>
           );
         })}
       </div>
+
+      {/* {console.log(value)}
+      {useEffect(() => {
+        console.log("Visualization received:", value);
+      }, [value])} */}
     </div>
   );
 };
