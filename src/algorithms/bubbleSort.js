@@ -4,7 +4,7 @@ function swap(idx1, idx2, values) {
   values[idx2] = temp;
 }
 
-function bubbleSort(values) {
+function bubbleSort(values, sortOrder) {
   const operations = [];
 
   for (let i = 0; i < values.length; i++) {
@@ -15,7 +15,10 @@ function bubbleSort(values) {
         index2: j + 1,
       });
 
-      if (values[j] > values[j + 1]) {
+      if (
+        (sortOrder === "ascending" && values[j] > values[j + 1]) ||
+        (sortOrder === "descending" && values[j] < values[j + 1])
+      ) {
         operations.push({
           type: "swap",
           index1: j,

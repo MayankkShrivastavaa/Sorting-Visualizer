@@ -8,6 +8,8 @@ import InformationPanel from "./components/InformationPanel";
 import bubbleSort from "./algorithms/bubbleSort";
 import selectionSort from "./algorithms/selectionSort";
 import insertionSort from "./algorithms/insertionSort";
+import mergeSort from "./algorithms/mergeSort";
+import quickSort from "./algorithms/quickSort";
 
 const App = () => {
   const [values, setValues] = useState([15, 36, 25, 21, 30]);
@@ -16,8 +18,9 @@ const App = () => {
   const [operations, setOperations] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [speed, setSpeed] = useState(500);
-  const [status, setStatus] = useState("stopped"); // "running", "paused", "stopped"
+  const [status, setStatus] = useState("stopped"); // "running", "paused", "stopped", "completed"
   const [originalValues, setOriginalValues] = useState([]);
+  const [sortOrder, setSortOrder] = useState("ascending");
 
   const handleStartSorting = () => {
     setOriginalValues([...values]);
@@ -25,21 +28,23 @@ const App = () => {
     switch (selectedAlgo) {
       case "Bubble":
         // Generate all compare & swap operations
-        generatedOperations = bubbleSort([...values]);
+        generatedOperations = bubbleSort([...values], sortOrder);
         break;
 
       case "Selection":
-        generatedOperations = selectionSort([...values]);
+        generatedOperations = selectionSort([...values], sortOrder);
         break;
 
       case "Insertion":
-        generatedOperations = insertionSort([...values]);
+        generatedOperations = insertionSort([...values], sortOrder);
         break;
 
       case "Merge":
+        generatedOperations = mergeSort([...values], sortOrder);
         break;
 
       case "Quick":
+        generatedOperations = quickSort([...values], sortOrder);
         break;
 
       default:
@@ -50,10 +55,9 @@ const App = () => {
   };
 
   const handlePlay = () => {
-    if (status === "stopped") {
+    if (status === "stopped" || status === "completed") {
       handleStartSorting();
     }
-
     setStatus("running");
   };
 
@@ -62,17 +66,17 @@ const App = () => {
   };
 
   const handleReset = () => {
-    setStatus("stopped");
-
-    setCurrentStep(0);
-
-    setCurrentOperation(null);
-
-    setOperations([]);
-
+    resetPlayback();
     if (originalValues.length > 0) {
       setValues([...originalValues]);
     }
+  };
+
+  const resetPlayback = () => {
+    setStatus("stopped");
+    setCurrentStep(0);
+    setCurrentOperation(null);
+    setOperations([]);
   };
 
   // useEffect(() => {
@@ -118,7 +122,10 @@ const App = () => {
 
     if (operations.length === 0) return;
 
-    if (currentStep >= operations.length) return;
+    if (currentStep >= operations.length) {
+      setStatus("completed");
+      return;
+    }
 
     const interval = setInterval(() => {
       const operation = operations[currentStep];
@@ -138,9 +145,17 @@ const App = () => {
           return newValues;
         });
       }
+      if (operation.type === "overwrite") {
+        setValues((prevValues) => {
+          const newValues = [...prevValues];
 
-      setCurrentStep(currentStep + 1);
-      // setCurrentStep(prev => prev + 1);
+          newValues[operation.index] = operation.value;
+
+          return newValues;
+        });
+      }
+      // setCurrentStep(currentStep + 1);
+      setCurrentStep((prev) => prev + 1);
     }, speed);
 
     return () => clearInterval(interval);
@@ -161,6 +176,7 @@ const App = () => {
           setSelectedAlgo={setSelectedAlgo}
           speed={speed}
           setSpeed={setSpeed}
+          onAlgorithmChange={resetPlayback}
         />
       </div>
 
@@ -179,6 +195,8 @@ const App = () => {
           onPlay={handlePlay}
           onPause={handlePause}
           onReset={handleReset}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
         />
       </div>
 

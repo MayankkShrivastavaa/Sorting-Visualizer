@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 
-const ControlPanel = ({ setValues , selectedAlgo, setSelectedAlgo, speed, setSpeed}) => {
+const ControlPanel = ({
+  setValues,
+  selectedAlgo,
+  setSelectedAlgo,
+  speed,
+  setSpeed,
+  onAlgorithmChange,
+}) => {
   // State for custom array input
   const [arrayInput, setArrayInput] = useState("");
 
@@ -14,7 +21,7 @@ const ControlPanel = ({ setValues , selectedAlgo, setSelectedAlgo, speed, setSpe
       let randomValue = Math.floor(Math.random() * 100) + 1;
       temp.push(randomValue);
     }
-
+    onAlgorithmChange();
     setValues(temp);
   };
 
@@ -25,7 +32,7 @@ const ControlPanel = ({ setValues , selectedAlgo, setSelectedAlgo, speed, setSpe
     let numbers = arr.map((value) => {
       return Number(value);
     });
-
+    onAlgorithmChange();
     setValues(numbers);
   };
 
@@ -40,14 +47,16 @@ const ControlPanel = ({ setValues , selectedAlgo, setSelectedAlgo, speed, setSpe
           id="sort-techniques"
           className="border border-stone-300 rounded-md px-3 py-2 text-sm bg-white"
           value={selectedAlgo}
-          onChange={(e)=> setSelectedAlgo(e.target.value)}
+          onChange={(e) => {
+            onAlgorithmChange();
+            setSelectedAlgo(e.target.value);
+          }}
         >
           <option value="Bubble">Bubble Sort</option>
           <option value="Selection">Selection Sort</option>
           <option value="Insertion">Insertion Sort</option>
           <option value="Quick">Quick Sort</option>
           <option value="Merge">Merge Sort</option>
-          
         </select>
       </div>
 

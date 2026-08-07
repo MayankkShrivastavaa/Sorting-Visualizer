@@ -4,11 +4,10 @@ function swap(idx1, idx2, values) {
   values[idx2] = temp;
 }
 
-function selectionSort(values) {
+function selectionSort(values, sortOrder) {
   const operations = [];
 
   for (let i = 0; i < values.length - 1; i++) {
-
     let minIndex = i;
 
     // Current minimum
@@ -18,15 +17,16 @@ function selectionSort(values) {
     });
 
     for (let j = i + 1; j < values.length; j++) {
-
       operations.push({
         type: "compare",
         index1: minIndex,
         index2: j,
       });
 
-      if (values[j] < values[minIndex]) {
-
+      if (
+        (sortOrder === "ascending" && values[j] < values[minIndex]) ||
+        (sortOrder === "descending" && values[j] > values[minIndex])
+      ) {
         minIndex = j;
 
         operations.push({
@@ -37,7 +37,6 @@ function selectionSort(values) {
     }
 
     if (minIndex !== i) {
-
       operations.push({
         type: "swap",
         index1: i,

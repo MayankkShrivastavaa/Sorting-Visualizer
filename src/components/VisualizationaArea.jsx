@@ -24,10 +24,23 @@ const VisualizationArea = ({ value, currentOperation }) => {
             currentOperation.type === "selectMin" &&
             index === currentOperation.index;
 
+          const isPivot =
+            currentOperation &&
+            currentOperation.type === "pivot" &&
+            index === currentOperation.index;
+
           return (
             <div
               key={index}
-              className={`w-8 ${isMinimum ? "bg-yellow-400" : isComparing ? "bg-red-500" : "bg-sky-500"}`}
+              className={`w-8 ${
+                isPivot
+                  ? "bg-yellow-500"
+                  : isMinimum
+                    ? "bg-green-500"
+                    : isComparing
+                      ? "bg-red-500"
+                      : "bg-sky-500"
+              }`}
               style={{ height: `${heightPercentage}%` }}
             ></div>
           );
