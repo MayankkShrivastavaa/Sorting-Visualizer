@@ -163,14 +163,14 @@ const App = () => {
   }, [currentStep, operations, speed, status]);
 
   return (
-    <div className="min-h-screen bg-stone-100 px-4 py-4 text-slate-800 sm:px-6 lg:px-8">
+    <div className="min-h-screen px-4 py-4 text-[#F5F1FA] sm:px-6 lg:px-8">
       {/* Header */}
       <div className="mb-3 text-center">
         <Header />
       </div>
 
       {/* Control Panel */}
-      <div className="mb-3 w-full rounded-md border border-stone-300 bg-white p-4 shadow-sm">
+      <div className="mb-3 w-full rounded-md border border-[#353044] bg-[#1D1A27] p-4 shadow-sm">
         <ControlPanel
           setValues={setValues}
           selectedAlgo={selectedAlgo}

@@ -9,8 +9,8 @@ const VisualizationArea = ({ value, currentOperation, selectedAlgo }) => {
   let maxValue = Math.max(...values);
 
   return (
-    <div className="rounded-md border border-stone-300 bg-white p-3 shadow-sm">
-      <div className="overflow-x-auto overflow-y-hidden border border-stone-200 bg-stone-50">
+    <div className="rounded-md border border-[#353044] bg-[#1D1A27] p-3 shadow-sm">
+      <div className="overflow-x-auto overflow-y-hidden border border-[#353044] bg-[#252131]">
         <div className="flex h-72 justify-center gap-2 px-3 py-4 min-w-min">
           {values.map((value, index) => {
             // Converting the value into percentage height
@@ -50,13 +50,13 @@ const VisualizationArea = ({ value, currentOperation, selectedAlgo }) => {
                     }`}
                     style={{ height: `${heightPercentage}%` }}
                   >
-                    <span className="absolute bottom-full left-0 right-0 text-center text-xs font-bold text-slate-800">
+                    <span className="absolute bottom-full left-0 right-0 text-center text-xs font-bold text-[#F5F1FA]">
                       {value}
                     </span>
                   </div>
                 </div>
 
-                <span className="text-xs text-slate-500">{index}</span>
+                <span className="text-xs text-[#AAA3B8]">{index}</span>
               </div>
             );
           })}
@@ -65,11 +65,11 @@ const VisualizationArea = ({ value, currentOperation, selectedAlgo }) => {
 
       {/* Visual States */}
       <div className="mt-3">
-        <h3 className="mb-2 text-sm font-semibold text-slate-700">
+        <h3 className="mb-2 text-sm font-semibold text-[#F5F1FA]">
           Visual States
         </h3>
 
-        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#AAA3B8]">
           <p className="flex items-center gap-2">
             <span className="inline-block h-3 w-3 rounded-sm bg-sky-500"></span>
             Default
