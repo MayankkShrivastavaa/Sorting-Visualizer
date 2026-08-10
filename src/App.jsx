@@ -4,6 +4,7 @@ import ControlPanel from "./components/ControlPanel";
 import VisualizationaArea from "./components/VisualizationaArea";
 import PlaybackControls from "./components/PlaybackControls";
 import InformationPanel from "./components/InformationPanel";
+import Footer from "./components/Footer";
 
 import bubbleSort from "./algorithms/bubbleSort";
 import selectionSort from "./algorithms/selectionSort";
@@ -185,6 +186,7 @@ const App = () => {
         <VisualizationaArea
           value={values}
           currentOperation={currentOperation}
+          selectedAlgo={selectedAlgo}
         />
       </div>
 
@@ -202,8 +204,15 @@ const App = () => {
 
       {/* Information Panel */}
       <div>
-        <InformationPanel />
+        <InformationPanel
+          selectedAlgo={selectedAlgo}
+          operations={operations}
+          currentStep={currentStep}
+        />
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

@@ -78,29 +78,41 @@ const ControlPanel = ({
 
       {/* Speed */}
       <div className="flex flex-col gap-2">
-        <h3 className="text-sm font-semibold text-slate-700">Speed</h3>
+        <h3 className="text-sm font-semibold text-slate-700">
+          Speed
+        </h3>
 
         <input
           type="range"
           min="50"
-          max="2000"
+          max="1000"
           className="accent-emerald-600"
-          value={speed}
-          onChange={(e) => setSpeed(Number(e.target.value))}
+          value={50 + 1000 - speed}
+          onChange={(e) => setSpeed(50 + 1000 - Number(e.target.value))}
         />
       </div>
 
       {/* Custom Array Input */}
-      <div className="flex flex-col gap-2">
-        <h3 className="text-sm font-semibold text-slate-700">Array Input</h3>
+      <div className="flex items-end gap-3">
+        <div className="flex flex-col gap-2">
+          <h3 className="text-sm font-semibold text-slate-700">Array Input</h3>
 
-        <input
-          type="text"
-          placeholder="e.g. 5, 2, 9, 1, 6"
-          className="border border-stone-300 rounded-md px-3 py-2 text-sm bg-white"
-          value={arrayInput}
-          onChange={(e) => setArrayInput(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="e.g. 5, 2, 9, 1, 6"
+            className="border border-stone-300 rounded-md px-3 py-2 text-sm bg-white"
+            value={arrayInput}
+            onChange={(e) => setArrayInput(e.target.value)}
+          />
+        </div>
+
+        {/* Use Custom Array */}
+        <button
+          className="rounded-md px-4 py-2 text-sm font-semibold cursor-pointer bg-emerald-600 text-white"
+          onClick={customArray}
+        >
+          Use Custom Array
+        </button>
       </div>
 
       {/* Generate Random Array */}
@@ -109,14 +121,6 @@ const ControlPanel = ({
         onClick={generateRandomArray}
       >
         Generate Random Array
-      </button>
-
-      {/* Use Custom Array */}
-      <button
-        className="rounded-md px-4 py-2 text-sm font-semibold cursor-pointer bg-emerald-600 text-white"
-        onClick={customArray}
-      >
-        Use Custom Array
       </button>
     </div>
   );
