@@ -1,100 +1,118 @@
-# 📊 Sorting Visualizer
+# Sorting Visualizer
 
-An interactive **Sorting Visualizer** built with **React.js** and **Tailwind CSS** to help understand how different sorting algorithms work through visual animations.
+An interactive educational tool for exploring how sorting algorithms transform an array step by step. The application visualizes comparisons, swaps, pivots, current minimum values, and merge overwrites while providing playback controls, live statistics, and algorithm complexity information.
 
-This project is being developed as part of my React and Data Structures & Algorithms (DSA) learning journey.
+> **Live demo:** Coming soon.
 
----
+## Features
 
-## 🚀 Tech Stack
+- Visualizes Bubble, Selection, Insertion, Merge, and Quick Sort.
+- Supports ascending and descending sorting modes.
+- Generates random arrays or accepts comma-separated custom arrays.
+- Adjusts the array size and animation speed.
+- Provides Start, Pause, and Reset playback controls.
+- Highlights algorithm states such as comparisons, pivots, and current minimum values.
+- Shows values above bars and indexes below them.
+- Displays operation-based statistics as the animation progresses.
+- Displays best-case, average-case, worst-case, and space complexity for the selected algorithm.
+- Supports horizontal scrolling for larger arrays.
 
-- React.js
+## Algorithms
+
+| Algorithm | Best Case | Average Case | Worst Case | Space Complexity |
+| --- | --- | --- | --- | --- |
+| Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
+| Selection Sort | O(n²) | O(n²) | O(n²) | O(1) |
+| Insertion Sort | O(n) | O(n²) | O(n²) | O(1) |
+| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
+| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+
+## Visual States
+
+The bar colors represent the operations currently being played:
+
+- Blue — default value
+- Red — comparison in progress
+- Yellow — pivot in Quick Sort
+- Green — current minimum in Selection Sort
+
+The displayed visual states adapt to the selected algorithm, so only relevant states are shown.
+
+## Tech Stack
+
+- React
 - JavaScript (ES6+)
 - Tailwind CSS
 - Vite
+- React Icons
 
----
+## Getting Started
 
-## ✨ Current Features
+### Prerequisites
 
-- Generate random arrays
-- Enter custom arrays manually
-- Adjustable array size
-- Dynamic bar visualization
-- Algorithm selection UI
-- Playback controls UI (Start, Pause, Stop, Reset)
-- Statistics and information panel UI
+- Node.js
+- npm
 
----
+### Installation
 
-## 🔨 Features Under Development
-
-- Bubble Sort visualization
-- Selection Sort visualization
-- Merge Sort visualization
-- Quick Sort visualization
-- Adjustable animation speed
-- Ascending / Descending mode
-- Pause / Resume functionality
-- Comparison counter
-- Swap counter
-- Current step visualization
-- Time elapsed tracker
-- Responsive UI improvements
-
----
-
-## 📁 Project Structure
-
+```bash
+git clone <your-repository-url>
+cd Sorting-Visualizer
+npm install
 ```
-src
-│
-├── components
-│   ├── Header.jsx
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+Open the local URL shown by Vite in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```text
+src/
+├── algorithms/
+│   ├── bubbleSort.js
+│   ├── insertionSort.js
+│   ├── mergeSort.js
+│   ├── quickSort.js
+│   └── selectionSort.js
+├── components/
 │   ├── ControlPanel.jsx
-│   ├── VisualizationArea.jsx
+│   ├── Footer.jsx
+│   ├── Header.jsx
+│   ├── InformationPanel.jsx
 │   ├── PlaybackControls.jsx
-│   └── InformationPanel.jsx
-│
+│   └── VisualizationaArea.jsx
 ├── App.jsx
-├── main.jsx
-└── index.css
+├── index.css
+└── main.jsx
 ```
 
----
+## How It Works
 
-## 🎯 Learning Goals
+Each sorting algorithm produces an array of operations. During playback, the app processes one operation at a time and updates the visualization accordingly. This keeps the animation, visual state, and displayed statistics connected to the same operation data.
 
-This project focuses on learning and implementing:
-
-- React Components
-- Props
-- State Management (`useState`)
-- Event Handling
-- Dynamic Rendering
-- Tailwind CSS
-- Data Structures & Algorithms
-- Algorithm Visualization
-- Clean Component Architecture
-
----
-
-## 📸 Preview
-
-Project UI is currently under active development.
-
----
-
-## 📌 Status
-
-🚧 Work in Progress
-
-The core UI has been completed, and the next stage is implementing sorting algorithms with real-time visualization and animation.
-
----
-
-## 👨‍💻 Author
+## Author
 
 **Mayank Shrivastava**
 
-Built as a learning project to strengthen React.js and DSA concepts.
+- GitHub: [MayankkShrivastavaa](https://github.com/MayankkShrivastavaa)
+- LinkedIn: [Mayank Shrivastava](https://www.linkedin.com/in/mayank-shrivastava-4bb4473a5/)
+- Email: [shrivastava.mayank.me@gmail.com](mailto:shrivastava.mayank.me@gmail.com)
+
+© 2026 Mayank Shrivastava. All rights reserved.
