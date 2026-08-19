@@ -2,7 +2,7 @@
 
 An interactive educational tool for exploring how sorting algorithms transform an array step by step. The application visualizes comparisons, swaps, pivots, current minimum values, and merge overwrites while providing playback controls, live statistics, and algorithm complexity information.
 
-> **Live demo:** Coming soon.
+> **Live demo:** [text](https://sorting-visualizer-eta-tawny.vercel.app/)
 
 ## Features
 
@@ -19,13 +19,13 @@ An interactive educational tool for exploring how sorting algorithms transform a
 
 ## Algorithms
 
-| Algorithm | Best Case | Average Case | Worst Case | Space Complexity |
-| --- | --- | --- | --- | --- |
-| Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
-| Selection Sort | O(n²) | O(n²) | O(n²) | O(1) |
-| Insertion Sort | O(n) | O(n²) | O(n²) | O(1) |
-| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
-| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+| Algorithm      | Best Case  | Average Case | Worst Case | Space Complexity |
+| -------------- | ---------- | ------------ | ---------- | ---------------- |
+| Bubble Sort    | O(n)       | O(n²)        | O(n²)      | O(1)             |
+| Selection Sort | O(n²)      | O(n²)        | O(n²)      | O(1)             |
+| Insertion Sort | O(n)       | O(n²)        | O(n²)      | O(1)             |
+| Merge Sort     | O(n log n) | O(n log n)   | O(n log n) | O(n)             |
+| Quick Sort     | O(n log n) | O(n log n)   | O(n²)      | O(log n)         |
 
 ## Visual States
 
