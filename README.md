@@ -2,7 +2,7 @@
 
 An interactive educational tool for exploring how sorting algorithms transform an array step by step. The application visualizes comparisons, swaps, pivots, current minimum values, and merge overwrites while providing playback controls, live statistics, and algorithm complexity information.
 
-> **Live demo:** [text](https://sorting-visualizer-eta-tawny.vercel.app/)
+> **Live demo:** https://sorting-visualizer-eta-tawny.vercel.app/
 
 ## Features
 
